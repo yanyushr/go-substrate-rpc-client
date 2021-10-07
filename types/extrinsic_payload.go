@@ -97,9 +97,9 @@ func (e *ExtrinsicPayloadV3) Decode(decoder scale.Decoder) error {
 
 type ExtrinsicPayloadV4 struct {
 	ExtrinsicPayloadV3
-	TransactionVersion U32
-	// ChargeTransactionPayment UCompact
-	// Claim                    Signature
+	TransactionVersion       U32
+	ChargeTransactionPayment UCompact
+	Claim                    Signature
 }
 
 // Sign the extrinsic payload with the given derivation path
@@ -149,15 +149,15 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
-	// err = encoder.Encode(e.ChargeTransactionPayment)
-	// if err != nil {
-	// 	return err
-	// }
+	err = encoder.Encode(e.ChargeTransactionPayment)
+	if err != nil {
+		return err
+	}
 
-	// err = encoder.Encode(e.Claim)
-	// if err != nil {
-	// 	return err
-	// }
+	err = encoder.Encode(e.Claim)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
