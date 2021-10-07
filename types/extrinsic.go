@@ -148,7 +148,7 @@ func (e *Extrinsic) Sign(signer signature.KeyringPair, o SignatureOptions) error
 		TransactionVersion: o.TransactionVersion,
 	}
 
-	signerPubKey := NewMultiAddressFromAccountID(signer.PublicKey)
+	signerPubKey := NewAccountID(signer.PublicKey)
 
 	sig, err := payload.Sign(signer)
 	if err != nil {
