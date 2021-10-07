@@ -21,9 +21,9 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcutil/base58"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/hash"
-	. "github.com/centrifuge/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/hash"
+	. "github.com/yanyushr/go-substrate-rpc-client/v3/types"
 )
 
 func TestChecksum(t *testing.T) {

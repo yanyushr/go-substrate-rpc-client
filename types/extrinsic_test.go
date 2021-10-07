@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/centrifuge/go-substrate-rpc-client/v3/signature"
-	. "github.com/centrifuge/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/signature"
+	. "github.com/yanyushr/go-substrate-rpc-client/v3/types"
 )
 
 func TestExtrinsic_Unsigned_EncodeDecode(t *testing.T) {

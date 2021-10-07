@@ -19,8 +19,8 @@ package state
 import (
 	"testing"
 
-	"github.com/centrifuge/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/types"
 )
 
 var prefix = types.NewStorageKey(types.MustHexDecodeString(mockSrv.childStorageTrieKeyHex))[:8]

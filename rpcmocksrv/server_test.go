@@ -19,8 +19,8 @@ package rpcmocksrv
 import (
 	"testing"
 
-	gethrpc "github.com/centrifuge/go-substrate-rpc-client/v3/gethrpc"
 	"github.com/stretchr/testify/assert"
+	gethrpc "github.com/yanyushr/go-substrate-rpc-client/v3/gethrpc"
 )
 
 type TestService struct {

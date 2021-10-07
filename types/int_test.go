@@ -20,8 +20,8 @@ import (
 	"math/big"
 	"testing"
 
-	. "github.com/centrifuge/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
+	. "github.com/yanyushr/go-substrate-rpc-client/v3/types"
 )
 
 func TestI8_EncodeDecode(t *testing.T) {

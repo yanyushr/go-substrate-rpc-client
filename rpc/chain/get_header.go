@@ -17,8 +17,8 @@
 package chain
 
 import (
-	"github.com/centrifuge/go-substrate-rpc-client/v3/client"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/types"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/client"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/types"
 )
 
 // GetHeader retrieves the header for the specific block

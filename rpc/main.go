@@ -17,13 +17,13 @@
 package rpc
 
 import (
-	"github.com/centrifuge/go-substrate-rpc-client/v3/client"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/rpc/author"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/rpc/chain"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/rpc/offchain"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/rpc/state"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/rpc/system"
-	"github.com/centrifuge/go-substrate-rpc-client/v3/types"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/client"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/rpc/author"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/rpc/chain"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/rpc/offchain"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/rpc/state"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/rpc/system"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/types"
 )
 
 type RPC struct {

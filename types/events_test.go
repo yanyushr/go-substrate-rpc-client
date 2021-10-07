@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/centrifuge/go-substrate-rpc-client/v3/scale"
 	"github.com/stretchr/testify/assert"
+	"github.com/yanyushr/go-substrate-rpc-client/v3/scale"
 )
 
 func TestVoteThreshold_Decoder(t *testing.T) {
