@@ -156,11 +156,14 @@ func (e *Extrinsic) Sign(signer signature.KeyringPair, o SignatureOptions) error
 	}
 
 	extSig := ExtrinsicSignatureV4{
-		Signer:    signerPubKey,
-		Signature: MultiSignature{IsSr25519: true, AsSr25519: sig},
-		Era:       era,
-		Nonce:     o.Nonce,
-		Tip:       o.Tip,
+		Signer:             signerPubKey,
+		Signature:          MultiSignature{IsSr25519: true, AsSr25519: sig},
+		SpecVersion:        o.SpecVersion,
+		TransactionVersion: o.TransactionVersion,
+		GenesisHash:        o.GenesisHash,
+		Era:                era,
+		Nonce:              o.Nonce,
+		Tip:                o.Tip,
 	}
 
 	e.Signature = extSig
