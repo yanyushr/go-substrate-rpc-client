@@ -32,7 +32,9 @@ type ExtrinsicSignatureV4 struct {
 	GenesisHash        Hash
 	Era                ExtrinsicEra // extra via system::CheckEra
 	Nonce              UCompact     // extra via system::CheckNonce (Compact<Index> where Index is u32))
-	Tip                UCompact     // extra via balances::TakeFees (Compact<Balance> where Balance is u128))
+	Weight             UCompact
+	Tip                UCompact // extra via balances::TakeFees (Compact<Balance> where Balance is u128))
+	Claim              AccountID
 }
 
 type SignatureOptions struct {

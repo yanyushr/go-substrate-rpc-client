@@ -98,6 +98,8 @@ func (e *ExtrinsicPayloadV3) Decode(decoder scale.Decoder) error {
 type ExtrinsicPayloadV4 struct {
 	ExtrinsicPayloadV3
 	TransactionVersion U32
+	Weight             UCompact
+	Claim              AccountID
 }
 
 // Sign the extrinsic payload with the given derivation path
@@ -142,15 +144,20 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
+	err = encoder.Encode(e.Weight)
+	if err != nil {
+		return err
+	}
+
 	err = encoder.Encode(e.Tip)
 	if err != nil {
 		return err
 	}
 
-	// err = encoder.Encode(e.Tip)
-	// if err != nil {
-	// 	return err
-	// }
+	err = encoder.Encode(e.Claim)
+	if err != nil {
+		return err
+	}
 
 	// err = encoder.Encode(e.BlockHash)
 	// if err != nil {
