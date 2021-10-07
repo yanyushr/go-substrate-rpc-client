@@ -33,8 +33,9 @@ type ExtrinsicSignatureV4 struct {
 	Era   ExtrinsicEra // extra via system::CheckEra
 	Nonce UCompact     // extra via system::CheckNonce (Compact<Index> where Index is u32))
 	// Weight             UCompact
-	Tip UCompact // extra via balances::TakeFees (Compact<Balance> where Balance is u128))
-	// Claim              [65]byte
+	Tip                      UCompact // extra via balances::TakeFees (Compact<Balance> where Balance is u128))
+	ChargeTransactionPayment UCompact
+	Claim                    Signature
 }
 
 type SignatureOptions struct {

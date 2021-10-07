@@ -146,7 +146,6 @@ func (e *Extrinsic) Sign(signer signature.KeyringPair, o SignatureOptions) error
 			BlockHash:   o.BlockHash,
 		},
 		TransactionVersion: o.TransactionVersion,
-		Weight:             NewUCompactFromUInt(0),
 	}
 
 	signerPubKey := NewAccountID(signer.PublicKey)
@@ -157,11 +156,13 @@ func (e *Extrinsic) Sign(signer signature.KeyringPair, o SignatureOptions) error
 	}
 
 	extSig := ExtrinsicSignatureV4{
-		Signer:    signerPubKey,
-		Signature: MultiSignature{IsSr25519: true, AsSr25519: sig},
-		Era:       era,
-		Nonce:     o.Nonce,
-		Tip:       o.Tip,
+		Signer:                   signerPubKey,
+		Signature:                MultiSignature{IsSr25519: true, AsSr25519: sig},
+		Era:                      era,
+		Nonce:                    o.Nonce,
+		Tip:                      o.Tip,
+		ChargeTransactionPayment: payload.ChargeTransactionPayment,
+		Claim:                    payload.Claim,
 	}
 
 	e.Signature = extSig
