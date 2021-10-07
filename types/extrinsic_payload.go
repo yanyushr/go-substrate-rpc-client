@@ -117,21 +117,6 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
-	err = encoder.Encode(e.Era)
-	if err != nil {
-		return err
-	}
-
-	err = encoder.Encode(e.Nonce)
-	if err != nil {
-		return err
-	}
-
-	err = encoder.Encode(e.Tip)
-	if err != nil {
-		return err
-	}
-
 	err = encoder.Encode(e.SpecVersion)
 	if err != nil {
 		return err
@@ -147,10 +132,25 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
-	err = encoder.Encode(e.BlockHash)
+	err = encoder.Encode(e.Era)
 	if err != nil {
 		return err
 	}
+
+	err = encoder.Encode(e.Nonce)
+	if err != nil {
+		return err
+	}
+
+	err = encoder.Encode(e.Tip)
+	if err != nil {
+		return err
+	}
+
+	// err = encoder.Encode(e.BlockHash)
+	// if err != nil {
+	// 	return err
+	// }
 
 	return nil
 }
