@@ -119,20 +119,20 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
-	err = encoder.Encode(e.SpecVersion)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.SpecVersion)
+	// if err != nil {
+	// 	return err
+	// }
 
-	err = encoder.Encode(e.TransactionVersion)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.TransactionVersion)
+	// if err != nil {
+	// 	return err
+	// }
 
-	err = encoder.Encode(e.GenesisHash)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.GenesisHash)
+	// if err != nil {
+	// 	return err
+	// }
 
 	err = encoder.Encode(e.Era)
 	if err != nil {
@@ -144,20 +144,20 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
-	err = encoder.Encode(e.Weight)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.Weight)
+	// if err != nil {
+	// 	return err
+	// }
 
 	err = encoder.Encode(e.Tip)
 	if err != nil {
 		return err
 	}
 
-	err = encoder.Encode(e.Claim)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.Claim)
+	// if err != nil {
+	// 	return err
+	// }
 
 	// err = encoder.Encode(e.BlockHash)
 	// if err != nil {

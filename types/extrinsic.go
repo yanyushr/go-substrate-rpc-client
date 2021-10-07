@@ -147,7 +147,6 @@ func (e *Extrinsic) Sign(signer signature.KeyringPair, o SignatureOptions) error
 		},
 		TransactionVersion: o.TransactionVersion,
 		Weight:             NewUCompactFromUInt(0),
-		Claim:              AccountID{},
 	}
 
 	signerPubKey := NewAccountID(signer.PublicKey)
@@ -167,7 +166,6 @@ func (e *Extrinsic) Sign(signer signature.KeyringPair, o SignatureOptions) error
 		Nonce:              o.Nonce,
 		Tip:                o.Tip,
 		Weight:             NewUCompactFromUInt(0),
-		Claim:              AccountID{},
 	}
 
 	e.Signature = extSig
