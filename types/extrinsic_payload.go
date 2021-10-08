@@ -136,15 +136,15 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 		return err
 	}
 
-	err = encoder.Encode(e.ChargeTransactionPayment)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.ChargeTransactionPayment)
+	// if err != nil {
+	// 	return err
+	// }
 
-	err = encoder.Encode(e.Claim)
-	if err != nil {
-		return err
-	}
+	// err = encoder.Encode(e.Claim)
+	// if err != nil {
+	// 	return err
+	// }
 
 	err = encoder.Encode(e.SpecVersion)
 	if err != nil {
