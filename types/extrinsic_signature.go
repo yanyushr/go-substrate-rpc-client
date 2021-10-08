@@ -28,10 +28,6 @@ type ExtrinsicSignatureV4 struct {
 	Signer    AccountID
 	Signature MultiSignature
 
-	SpecVersion        U32
-	TransactionVersion U32
-	GenesisHash        Hash
-
 	Era   ExtrinsicEra // extra via system::CheckEra
 	Nonce UCompact     // extra via system::CheckNonce (Compact<Index> where Index is u32))
 	// Weight             UCompact
