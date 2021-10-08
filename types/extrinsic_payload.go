@@ -110,26 +110,13 @@ func (e ExtrinsicPayloadV4) Sign(signer signature.KeyringPair) (Signature, error
 	}
 
 	sig, err := signature.Sign(b, signer.URI)
+	fmt.Println("**********:sig:", sig)
+	fmt.Println("*******:data", b)
 	return NewSignature(sig), err
 }
 
 func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 	err := encoder.Encode(e.Method)
-	if err != nil {
-		return err
-	}
-
-	err = encoder.Encode(e.SpecVersion)
-	if err != nil {
-		return err
-	}
-
-	err = encoder.Encode(e.TransactionVersion)
-	if err != nil {
-		return err
-	}
-
-	err = encoder.Encode(e.GenesisHash)
 	if err != nil {
 		return err
 	}
@@ -155,6 +142,21 @@ func (e ExtrinsicPayloadV4) Encode(encoder scale.Encoder) error {
 	}
 
 	err = encoder.Encode(e.Claim)
+	if err != nil {
+		return err
+	}
+
+	err = encoder.Encode(e.SpecVersion)
+	if err != nil {
+		return err
+	}
+
+	err = encoder.Encode(e.TransactionVersion)
+	if err != nil {
+		return err
+	}
+
+	err = encoder.Encode(e.GenesisHash)
 	if err != nil {
 		return err
 	}
