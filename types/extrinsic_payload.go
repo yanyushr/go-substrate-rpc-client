@@ -19,7 +19,6 @@ package types
 import (
 	"fmt"
 
-	"github.com/yanyushr/go-substrate-rpc-client/types"
 	"github.com/yanyushr/go-substrate-rpc-client/v3/scale"
 	"github.com/yanyushr/go-substrate-rpc-client/v3/signature"
 )
@@ -111,8 +110,8 @@ func (e ExtrinsicPayloadV4) Sign(signer signature.KeyringPair) (Signature, error
 	}
 
 	sig, err := signature.Sign(b, signer.URI)
-	fmt.Println("**********:sig:", types.HexEncodeToString(sig))
-	fmt.Println("*******:data", types.MustHexDecodeString(b))
+	fmt.Println("**********:sig:", HexEncodeToString(sig))
+	fmt.Println("*******:data", HexEncodeToString(b))
 	return NewSignature(sig), err
 }
 
