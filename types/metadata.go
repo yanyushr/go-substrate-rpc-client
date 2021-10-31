@@ -45,6 +45,8 @@ type Metadata struct {
 	AsMetadataV12 MetadataV12
 	IsMetadataV13 bool
 	AsMetadataV13 MetadataV13
+	IsMetadataV14 bool
+	AsMetadataV14 MetadataV14
 }
 
 func NewMetadataV4() *Metadata {
@@ -91,6 +93,14 @@ func NewMetadataV13() *Metadata {
 	}
 }
 
+func NewMetadataV14() *Metadata {
+	return &Metadata{
+		Version:       14,
+		IsMetadataV14: true,
+		AsMetadataV14: MetadataV14{Pallets: make([]PalletMetadataV14, 0)},
+	}
+}
+
 func (m *Metadata) Decode(decoder scale.Decoder) error {
 	err := decoder.Decode(&m.MagicNumber)
 	if err != nil {
@@ -130,6 +140,9 @@ func (m *Metadata) Decode(decoder scale.Decoder) error {
 	case 13:
 		m.IsMetadataV13 = true
 		err = decoder.Decode(&m.AsMetadataV13)
+	case 14:
+		m.IsMetadataV14 = true
+		err = decoder.Decode(&m.AsMetadataV14)
 	default:
 		return fmt.Errorf("unsupported metadata version %v", m.Version)
 	}
@@ -165,6 +178,8 @@ func (m Metadata) Encode(encoder scale.Encoder) error {
 		err = encoder.Encode(m.AsMetadataV12)
 	case 13:
 		err = encoder.Encode(m.AsMetadataV13)
+	case 14:
+		err = encoder.Encode(m.AsMetadataV14)
 	default:
 		return fmt.Errorf("unsupported metadata version %v", m.Version)
 	}
@@ -192,6 +207,8 @@ func (m *Metadata) FindConstantValue(module string, constantName string) ([]byte
 		return m.AsMetadataV12.FindConstantValue(txtModule, txtConstantName)
 	case m.IsMetadataV13:
 		return m.AsMetadataV13.FindConstantValue(txtModule, txtConstantName)
+	case m.IsMetadataV14:
+		return m.AsMetadataV14.FindConstantValue(txtModule, txtConstantName)
 	default:
 		return nil, fmt.Errorf("unsupported metadata version")
 	}
@@ -215,6 +232,8 @@ func (m *Metadata) FindCallIndex(call string) (CallIndex, error) {
 		return m.AsMetadataV12.FindCallIndex(call)
 	case m.IsMetadataV13:
 		return m.AsMetadataV13.FindCallIndex(call)
+	case m.IsMetadataV14:
+		return m.AsMetadataV14.FindCallIndex(call)
 	default:
 		return CallIndex{}, fmt.Errorf("unsupported metadata version")
 	}
@@ -238,6 +257,8 @@ func (m *Metadata) FindEventNamesForEventID(eventID EventID) (Text, Text, error)
 		return m.AsMetadataV12.FindEventNamesForEventID(eventID)
 	case m.IsMetadataV13:
 		return m.AsMetadataV13.FindEventNamesForEventID(eventID)
+	case m.IsMetadataV14:
+		return m.AsMetadataV14.FindEventNamesForEventID(eventID)
 	default:
 		return "", "", fmt.Errorf("unsupported metadata version")
 	}
@@ -261,6 +282,8 @@ func (m *Metadata) FindStorageEntryMetadata(module string, fn string) (StorageEn
 		return m.AsMetadataV12.FindStorageEntryMetadata(module, fn)
 	case m.IsMetadataV13:
 		return m.AsMetadataV13.FindStorageEntryMetadata(module, fn)
+	case m.IsMetadataV14:
+		return m.AsMetadataV14.FindStorageEntryMetadata(module, fn)
 	default:
 		return nil, fmt.Errorf("unsupported metadata version")
 	}
@@ -284,6 +307,8 @@ func (m *Metadata) ExistsModuleMetadata(module string) bool {
 		return m.AsMetadataV12.ExistsModuleMetadata(module)
 	case m.IsMetadataV13:
 		return m.AsMetadataV13.ExistsModuleMetadata(module)
+	case m.IsMetadataV14:
+		return m.AsMetadataV14.ExistsModuleMetadata(module)
 	default:
 		return false
 	}
