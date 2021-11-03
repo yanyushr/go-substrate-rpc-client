@@ -275,7 +275,7 @@ type SignedExtensionMetadata struct {
 
 type ExtrinsicV14 struct {
 	Type             UCompact
-	Version          UCompact
+	Version          U8
 	SignedExtensions []SignedExtensionMetadata
 }
 
